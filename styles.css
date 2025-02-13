@@ -1,0 +1,128 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #b873a1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    background-color: #f5bede;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    position: relative;
+    width: 150px;
+    height: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.image-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.top-line {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 4px;
+    background-color: #ff6f61;
+    border-radius: 2px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 150px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.emoji {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+}
+
+.beautiful-line {
+    color: #555;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.image-container.visible .beautiful-line {
+    opacity: 1;
+}
+
+.final-message {
+    color: #e74c3c;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.final-message.visible {
+    opacity: 1;
+}
+
+/* Flower falling animation */
+.flowers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.flower {
+    position: absolute;
+    font-size: 24px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
